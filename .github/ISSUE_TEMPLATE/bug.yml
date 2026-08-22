@@ -1,0 +1,66 @@
+name: Bug
+description: Something is broken.
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happens
+      description: The actual behaviour, and what you expected instead.
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      value: |
+        1. 
+        2. 
+        3. 
+    validations:
+      required: true
+
+  - type: dropdown
+    id: where
+    attributes:
+      label: Where
+      options:
+        - gullie-api
+        - gullie-manager
+        - gullie-master
+        - gullie-web
+        - gullie-print-agent
+        - mise-en-place
+        - website
+        - Not sure
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      options:
+        - Blocks service — a restaurant cannot operate
+        - Wrong data — money, orders or fiscal
+        - Broken feature, workaround exists
+        - Cosmetic
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Environment and context
+      placeholder: |
+        Production / staging / local
+        Which venue or organisation, if relevant
+        Browser or OS
+        Errors from the console, the API logs, or Grafana
+
+  - type: textarea
+    id: cause
+    attributes:
+      label: Suspected cause
+      description: Optional. Any lead saves time.

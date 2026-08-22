@@ -1,0 +1,62 @@
+name: Epic
+description: A feature spanning several tasks or repos. Parent for child issues.
+labels: ["epic"]
+body:
+  - type: textarea
+    id: objective
+    attributes:
+      label: Objective
+      description: What this delivers, and why it matters now.
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      description: What is in, and — just as usefully — what is explicitly out.
+    validations:
+      required: true
+
+  - type: textarea
+    id: children
+    attributes:
+      label: Child issues
+      description: One per repo per deliverable, in dependency order. Fill in as they are created.
+      value: |
+        - [ ] #  Design — 
+        - [ ] #  BE — 
+        - [ ] #  Manager — 
+        - [ ] #  Web — 
+      placeholder: |
+        Usual order: design → backend → api-types publish → frontends
+    validations:
+      required: true
+
+  - type: textarea
+    id: repos
+    attributes:
+      label: Repos affected
+      placeholder: gullie-api, gullie-manager, gullie-web
+
+  - type: textarea
+    id: contract
+    attributes:
+      label: Contract changes
+      description: Does this change `api-types`, a socket payload, or a design-system component? If so, plan the publish and the consumer bumps as explicit steps.
+      placeholder: none
+
+  - type: textarea
+    id: decisions
+    attributes:
+      label: Product decisions needed
+      description: Anything on the "not yet decided" list in gullie-ai/docs/product.md that this depends on.
+      placeholder: none
+
+  - type: textarea
+    id: done
+    attributes:
+      label: Definition of done
+      description: What is true when the whole epic is finished.
+    validations:
+      required: true

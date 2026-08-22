@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Chore or spike
+    url: https://github.com/Gullie-App/gullie-ai/blob/main/plugins/gullie/skills/gullie-feature-planning/SKILL.md
+    about: For maintenance or a timeboxed investigation, open a blank issue and label it chore or spike.

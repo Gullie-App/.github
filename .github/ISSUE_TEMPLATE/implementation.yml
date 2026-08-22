@@ -1,0 +1,84 @@
+name: Implementation
+description: Build something. The default issue type.
+labels: ["implementation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Write this so an AI agent can start without asking you anything.
+        Objective and acceptance criteria are the two that always matter.
+
+  - type: textarea
+    id: objective
+    attributes:
+      label: Objective
+      description: What outcome, and why it matters. One or two sentences.
+      placeholder: Venues can toggle whether customers are notified when an order is ready, so quieter rooms aren't disturbed.
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: What exists today. Link the relevant code, the epic, any prior issue.
+      placeholder: |
+        `VenueSettings` already has `notify_on_order_ready` (added in #12) but nothing exposes it.
+        Settings page: gullie-manager/src/pages/business-details/
+
+  - type: textarea
+    id: requirements
+    attributes:
+      label: Requirements
+      description: Specific, checkable functional requirements.
+      placeholder: |
+        - Toggle appears in the venue settings page
+        - Persists via PATCH /venue/:id/settings
+        - Reflects the current value on load
+
+  - type: textarea
+    id: technical
+    attributes:
+      label: Technical considerations
+      description: Affected modules, endpoints, models, components. Existing patterns to follow, with paths.
+      placeholder: |
+        Follow the pattern in `update-venue-settings` use case.
+        Use `Toggle` from @gullie-app/mep-react.
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: Concrete, verifiable conditions. This defines done.
+      value: |
+        - [ ] 
+        - [ ] Lint, typecheck and tests pass
+    validations:
+      required: true
+
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies
+      description: "Blocked by #NN. Blocks #MM. Or: none."
+      placeholder: none
+
+  - type: textarea
+    id: files
+    attributes:
+      label: Files likely affected
+      placeholder: |
+        - gullie-api/src/modules/venue/use-cases/update-venue-settings.ts
+        - gullie-manager/src/pages/business-details/index.tsx
+
+  - type: checkboxes
+    id: crossrepo
+    attributes:
+      label: Cross-repo impact
+      description: See gullie-ai/docs/api-contracts.md. Tick anything that applies.
+      options:
+        - label: Changes a file under `gullie-api/src/modules/*/entities/` (API contract change — affects all four frontends)
+        - label: Changes a socket payload shape (manager, web, print-agent — unversioned)
+        - label: Needs a `mise-en-place` component change (blocks this issue)
+        - label: Needs a Prisma migration
+        - label: Needs a new `PERMISSION_NAME`

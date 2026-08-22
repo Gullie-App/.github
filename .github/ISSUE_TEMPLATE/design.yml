@@ -1,0 +1,63 @@
+name: Design
+description: Work out the UX before it gets built. Blocks its implementation issue.
+labels: ["design"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Only for meaningful new UX — a new screen, a new flow, a materially changed interaction.
+        Skip this for simple UI fixes, copy changes, or adding a field to an existing form.
+
+  - type: textarea
+    id: objective
+    attributes:
+      label: Objective
+      description: What the user needs to be able to do, and why.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: app
+    attributes:
+      label: Which app
+      options:
+        - gullie-manager (venue staff — busy, mid-service, shared screen)
+        - gullie-web (diners — own phone, first time, no training)
+        - gullie-master (Gullie team — infrequent, high-stakes)
+        - gullie-print-agent (set up once, then invisible)
+        - More than one
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Existing screens or flows this relates to. Link them.
+
+  - type: textarea
+    id: deliverables
+    attributes:
+      label: Deliverables
+      value: |
+        - [ ] User flow, entry point to completion, including exits
+        - [ ] Screens: purpose, content, primary/secondary actions
+        - [ ] States: loading, empty (first-run vs filtered-to-nothing), error, validation, success
+        - [ ] Design system components used; anything missing flagged
+        - [ ] Real copy in pt-BR — not placeholders
+        - [ ] Interaction detail: double-submit, slow network, conflicting socket update, back button
+        - [ ] UX decisions recorded with reasoning
+    validations:
+      required: true
+
+  - type: textarea
+    id: constraints
+    attributes:
+      label: Constraints
+      description: Anything already decided that the design must respect.
+
+  - type: textarea
+    id: questions
+    attributes:
+      label: Open questions
+      description: What needs a product decision before this can be finished.
